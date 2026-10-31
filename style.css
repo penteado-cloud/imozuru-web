@@ -1,0 +1,130 @@
+/* Colours from imozuru/Theme.swift in the app repo. */
+:root {
+  color-scheme: light dark;
+  --moss: #5E7D4F;
+  --stem: #8FA27D;
+  --bud: #B8935A;
+  --paper: #F5F3EC;
+  --card: #FFFFFF;
+  --ink: #2F3B2A;
+  --muted: #6B7366;
+  --rule: #E2DED2;
+
+  --mincho: "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "Yu Mincho",
+    "Noto Serif JP", "Noto Serif CJK JP", "Source Han Serif JP", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Hiragino Kaku Gothic ProN",
+    "Segoe UI", "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --moss: #9DBE88;
+    --stem: #5F7A55;
+    --bud: #D6B57C;
+    --paper: #0F120F;
+    --card: #1A1E19;
+    --ink: #E4E7DF;
+    --muted: #9DA597;
+    --rule: #2A3028;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 17px/1.7 var(--sans);
+}
+
+main, .site-header, .site-footer {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  font-family: var(--mincho);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.01em;
+}
+h1 { font-size: 2rem; margin: 0.4em 0 0.6em; }
+h2 { font-size: 1.35rem; margin: 2.2em 0 0.5em; color: var(--moss); }
+h3 { font-size: 1.1rem; margin: 1.8em 0 0.4em; }
+
+p, ul { margin: 0 0 1em; }
+ul { padding-left: 1.3em; }
+li { margin: 0.25em 0; }
+li::marker { color: var(--stem); }
+
+a { color: var(--moss); text-underline-offset: 0.18em; text-decoration-thickness: 1px; }
+a:hover { color: var(--bud); }
+
+hr {
+  border: 0;
+  height: 1px;
+  background: var(--rule);
+  margin: 3rem 0;
+}
+
+.muted { color: var(--muted); }
+.small { font-size: 0.9rem; }
+
+/* Header on inner pages: small icon + name, back to home. */
+.site-header { padding-top: 28px; }
+.site-header a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--mincho);
+  font-size: 1.05rem;
+}
+.site-header img { width: 32px; height: 32px; border-radius: 22.5%; }
+.site-header .ja { color: var(--muted); font-size: 0.95rem; }
+
+.site-footer {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+.site-footer nav a { margin-right: 1.2em; }
+
+.card {
+  background: var(--card);
+  border-radius: 14px;
+  padding: 1.1rem 1.3rem;
+  margin: 1.5rem 0;
+}
+.card > :last-child { margin-bottom: 0; }
+
+/* Landing page */
+.hero {
+  text-align: center;
+  padding-top: 18vh;
+  padding-bottom: 2rem;
+}
+.hero img {
+  width: 128px;
+  height: 128px;
+  border-radius: 22.5%;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08), 0 8px 24px rgb(47 59 42 / 0.12);
+}
+.hero h1 { font-size: 2.4rem; margin: 1.1rem 0 0.2rem; }
+.hero h1 .ja { display: block; font-size: 1.15rem; color: var(--bud); font-weight: 500; letter-spacing: 0.2em; }
+.hero .tagline { margin: 1.4rem auto 0.4rem; max-width: 30rem; }
+.hero .tagline[lang="ja"] { color: var(--muted); }
+.hero nav { margin-top: 2.2rem; }
+.hero nav a { display: inline-block; margin: 0.2em 0.8em; white-space: nowrap; }
+
+/* Language jump on bilingual pages */
+.lang-switch { font-size: 0.9rem; margin-top: -0.5rem; }
+
+[lang="ja"] { line-break: strict; }
+[lang="ja"] h2, [lang="ja"] h3 { letter-spacing: 0.04em; }
